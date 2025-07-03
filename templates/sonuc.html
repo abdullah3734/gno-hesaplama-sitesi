@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Hesaplama Sonuçları</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hesaplama Sonuçları</h1>
+
+        <div class="gno-sonuc">
+            Genel Not Ortalamanız (GNO): <strong>{{ gno }}</strong>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Ders Adı</th>
+                    <th>Kredi</th>
+                    <th>Dönem Sonu Notu</th>
+                    <th>Harf Notu</th>
+                    <th>Katsayı</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ders in dersler %}
+                <tr>
+                    <td>{{ ders.ad }}</td>
+                    <td>{{ ders.kredi }}</td>
+                    <td>{{ ders.son_not }}</td>
+                    <td>{{ ders.harf }}</td>
+                    <td>{{ ders.katsayi }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/" class="yeni-hesaplama-btn">Yeni Hesaplama Yap</a>
+    </div>
+</body>
+</html>
