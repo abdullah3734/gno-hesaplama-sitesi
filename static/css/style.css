@@ -1,0 +1,152 @@
+/* ===== TEMEL AYARLAR VE YENİ RENK PALETİ ===== */
+:root {
+    --primary-color: #007bff; /* Ana Mavi Renk */
+    --primary-hover: #0056b3; /* Ana Mavinin Koyu Hali */
+    --secondary-color: #6c757d; /* İkincil Gri Renk */
+    --background-color: #f8f9fa; /* Açık Arkaplan Rengi */
+    --surface-color: #ffffff;    /* Kart ve Yüzey Rengi */
+    --text-color: #343a40;       /* Ana Metin Rengi */
+    --border-color: #dee2e6;     /* Kenarlık Rengi */
+    --success-color: #28a745;    /* Başarı (Yeşil) Rengi */
+    --danger-color: #dc3545;     /* Tehlike (Kırmızı) Rengi */
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Yumuşak Gölge */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Yeni fontumuzu uyguluyoruz */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+/* ===== GENEL LAYOUT VE CONTAINER ===== */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: var(--surface-color);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+h1, h2 {
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-top: 0;
+}
+
+h4 {
+    color: var(--primary-color);
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* ===== FORM ELEMANLARI (GİRİŞ KUTULARI, BUTONLAR) ===== */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box; /* Önemli: Padding ve border genişliği etkilemesin */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+button, .yeni-hesaplama-btn {
+    padding: 12px 20px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover, .yeni-hesaplama-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px); /* Butonun hafifçe yukarı kalkması efekti */
+}
+
+/* ===== ÖZEL KART VE TABLO TASARIMLARI ===== */
+.ders-karti {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    background-color: #fafbff;
+}
+
+.bilesen-satiri {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.bilesen-satiri input { margin-bottom: 0; }
+.ekle-btn { background-color: var(--success-color); }
+.ekle-btn:hover { background-color: #218838; }
+.sil-btn { background-color: var(--danger-color); }
+.sil-btn:hover { background-color: #c82333; }
+.hesapla-btn { width: 100%; padding: 15px; font-size: 1.1em; font-weight: 600; margin-top: 20px; }
+.yeni-hesaplama-btn { font-weight: 600; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px;
+    text-align: left;
+}
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+/* Tablo satırlarının üzerine gelince renk değiştirme */
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+thead th:first-child { border-top-left-radius: 8px; }
+thead th:last-child { border-top-right-radius: 8px; }
+
+.gno-sonuc {
+    font-size: 1.4em;
+    text-align: center;
+    margin: 25px 0;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* ===== RESPONSIVE TASARIM (MOBİL UYUMLULUK) ===== */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+    .bilesen-satiri {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .bilesen-satiri input, .bilesen-satiri button {
+        width: 100%;
+    }
+}

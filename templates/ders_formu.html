@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Ders Bilgilerini Girin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -10,7 +13,6 @@
         <h1>Ders Bilgileri</h1>
         <form action="/hesapla" method="post">
             <input type="hidden" name="ders_sayisi" value="{{ ders_sayisi }}">
-
             {% for i in range(ders_sayisi) %}
             <div class="ders-karti">
                 <h2>Ders {{ i + 1 }}</h2>
@@ -18,7 +20,6 @@
                     <input type="text" name="ders-{{ i }}-ad" placeholder="Ders Adı (örn: Matematik I)" required>
                     <input type="number" step="0.5" name="ders-{{ i }}-kredi" placeholder="Kredi" required>
                 </div>
-
                 <h4>Not Bileşenleri</h4>
                 <div id="bilesenler-container-{{ i }}">
                     <div class="bilesen-satiri">
@@ -31,11 +32,9 @@
                 <button type="button" class="ekle-btn" onclick="bilesenEkle({{ i }})">Bileşen Ekle</button>
             </div>
             {% endfor %}
-
             <button type="submit" class="hesapla-btn">Tümünü Hesapla</button>
         </form>
     </div>
-
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
