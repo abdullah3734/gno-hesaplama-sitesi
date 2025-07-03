@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>GNO Hesaplama</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Genel Not Ortalaması (GNO) Hesaplama</h1>
+        <form action="/" method="post">
+            <label for="ders_sayisi">Hesaplanacak Ders Sayısı:</label>
+            <input type="number" id="ders_sayisi" name="ders_sayisi" min="1" required>
+            <button type="submit">Başla</button>
+        </form>
+    </div>
+</body>
+</html>
